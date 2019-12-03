@@ -6,6 +6,7 @@ namespace Quiz
 {
     class MCQuestionCreator
     {
+        //hard coded mc questions
         public static List<IQuiz> create()
         {
             IQuiz q1 = new MultipleChoiceQuestion()

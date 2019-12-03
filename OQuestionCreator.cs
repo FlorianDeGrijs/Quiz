@@ -7,6 +7,7 @@ namespace Quiz
     class OQuestionCreator
     {
 
+        //hard coded open questions
         public static List<IQuiz> create()
         {
             IQuiz q1 = new OpenQuestion()

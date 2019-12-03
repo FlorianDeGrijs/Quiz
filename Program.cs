@@ -10,16 +10,34 @@ namespace Quiz
         static void Main(string[] args)
         {
             List<IQuiz> questions = Initialize();
+            StartQuiz(questions);
+            Console.WriteLine("**********************\nEnd of this quiz.\nPress any key to exit...");
+            Console.ReadKey(true);
+        }
+
+        //start de quiz met alle ingevoerde gebruikersvoorwaarden
+        private static void StartQuiz(List<IQuiz> questions)
+        {
             int totalQuestions = questions.Count();
             int questionCounter = 1;
+            int i = 0;
+            string answer = "";
 
-
-
-            Console.WriteLine($"Question {questionCounter}: {questions[0].Question}");
-            
-           
-
-            Console.ReadKey(true);
+            while (i < totalQuestions)
+            {
+                questions[i].ShowQuestion(questionCounter);
+                answer = Console.ReadLine();
+                if (answer.ToLower().Equals(questions[i].Answer.ToLower()))
+                {
+                    Console.WriteLine($"That was the correct answer!");
+                }
+                else
+                {
+                    Console.WriteLine($"False. The correct answer was: {questions[i].Answer}");
+                }
+                i++;
+                questionCounter++;
+            }
         }
 
         //initialization of program

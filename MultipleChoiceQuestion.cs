@@ -12,6 +12,17 @@ namespace Quiz
         public string Answer { get; set; }
         public List<string> choices { get; set; }
 
+        public void ShowQuestion(int counter)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("\nQuestion " + counter + ": " + Question + "\n");
+            foreach (string choice in choices)
+            {
+                sb.Append(choice + "\n");
+            }
+            Console.WriteLine(sb.ToString());
+        }
+
         public override string ToString()
         {
             return "Category: " + Category + " ||| Difficulty: " + Difficulty;
